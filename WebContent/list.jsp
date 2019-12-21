@@ -34,7 +34,7 @@
 						<div class="image"><a href="#"><img src="./img/1.jpeg" alt="사진"></a></div>
 						<div class="cont">
 							<div class="category">학원소식</div>
-							<div class="title"><a href="<c:url value="./view?id="/>"><%=board.getTitle() %></a></div>
+							<div class="title"><a href="./view.jsp?id=<%=board.getId()%>"><%=board.getTitle() %></a></div>
 							<div class="etc">
 								<span>부원장</span>
 								<span>2019.11.12</span>
@@ -55,7 +55,7 @@
 				<div class="bt_wrap">
 					<a href="#" class="bt1 on">목록</a>
 					<a href="#" class="bt1">수정</a>
-					<a href="./write" class="bt1">글쓰기</a>
+					<a href="./write.html" class="bt1">글쓰기</a>
 				</div>
 			</div>
 		</div>

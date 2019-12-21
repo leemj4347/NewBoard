@@ -51,12 +51,39 @@ public class BoardController {
 				item.setId(rs.getInt("id"));
 				item.setTitle(rs.getString("title"));
 				item.setWriter(rs.getString("writer"));
+				item.setContent(rs.getString("content"));
 				item.setWdate(rs.getString("wdate"));
 				
 				result.add(item);
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public Board selectOne(Board board) {
+		Board result = new Board();
+		
+		DBConn db = new DBConn();
+		try(Connection conn = db.getConnection()){
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT * FROM new_board WHERE id = ?");
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, board.getId());
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				result.setId(rs.getInt("id"));
+				result.setTitle(rs.getString("title"));
+				result.setContent(rs.getString("content"));
+				result.setWriter(rs.getString("writer"));
+				result.setWdate(rs.getString("wdate"));
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();               
 		}catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -1,0 +1,71 @@
+.bt_wrap {
+	margin-top: 30px;
+    text-align: center;
+}
+
+a.bt1,
+input.bt1 {
+	display: inline-block;
+	min-width: 100px;
+	margin-left: 5px;
+	padding: 6px 10px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	border: 1px solid #00bcd4;
+	background: transparent;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: #00bcd4;
+}
+
+a.bt1:first-child,
+input.bt1:first-child {
+	margin-left: 0;
+}
+
+a.bt1.on,
+input.bt1.on {
+	background-color: #00bcd4 !important;
+	color: #fff;
+}
+
+a.bt2,
+input.bt2 {
+	display: inline-block;
+	min-width: 40px;
+	margin-left: 5px;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	border: 1px solid #00bcd4;
+	background: transparent;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #00bcd4;
+}
+
+a.bt2:first-child,
+input.bt2:first-child {
+	margin-left: 0;
+}
+
+a.bt2.on,
+input.bt2.on {
+	background-color: #00bcd4 !important;
+	color: #fff;
+}
+
+@media ( max-width: 800px ) {
+    .bt_wrap {
+		margin-top: 20px;
+		padding-bottom: 10px;
+	}
+	a.bt1,
+	input.bt1 {
+		min-width: 76px;
+		padding: 5px 8px;
+		font-size: 1.3rem;
+	}
+}

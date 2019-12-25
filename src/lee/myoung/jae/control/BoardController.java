@@ -6,11 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import lee.myoung.jae.db.DBConn;
 import lee.myoung.jae.vo.Board;
 
 public class BoardController {
+	
+	private final Logger logger = Logger.getLogger(getClass().getSimpleName());
+	
 	public int insert(Board input) {
 		int result = 0;
 		
@@ -84,6 +88,53 @@ public class BoardController {
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();               
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public int updateBoard(Board board) {
+		logger.info(board.toString());
+		int result = 0;
+		
+		DBConn db = new DBConn();
+		
+		try(Connection conn = db.getConnection()){
+			StringBuilder sql = new StringBuilder();
+			sql.append("UPDATE new_board SET title= ?, writer = ?, content = ? WHERE id=?");
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getWriter());
+			pstmt.setString(3, board.getContent());
+			pstmt.setInt(4, board.getId());
+			
+			logger.info(pstmt.toString());
+			
+			result = pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	public int deleteBoard(Board board) {
+		int result = 0;
+		
+		DBConn db = new DBConn();
+		
+		try(Connection conn = db.getConnection()){
+			StringBuilder sql = new StringBuilder();
+			sql.append("DElETE FROM new_board WHERE id = ?");
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, board.getId());
+			
+			result = pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

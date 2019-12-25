@@ -42,7 +42,7 @@
             </div>
 			<div class="board_write_wrap">
                 <div class="board_write">
-                    <form action="./write.jsp" method="post">
+                    <form action="./edit.jsp" method="post">
                         <dl>
                             <dt>카테고리</dt>
                             <dd>

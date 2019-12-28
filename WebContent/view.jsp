@@ -46,7 +46,7 @@
 				<div class="bt_wrap">
 					<a href="./list.jsp" class="bt1 on">목록</a>
 					<a href="./editForm.jsp?id=<%=board.getId()%>" class="bt1">수정</a>
-					<a href="./delete.jsp" class="bt1">삭제</a>
+					<a href="./delete.jsp?id=<%=board.getId()%>" class="bt1">삭제</a>
 				</div>
 			</div>
 		</div>

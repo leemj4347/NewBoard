@@ -74,7 +74,7 @@
                                 </ul>
                             </dd>
                         </dl>
-                        
+                        <input type="hidden" name="id" value="<%=board.getId()%>">
                     </form>
                 </div>
 				<div class="bt_wrap">
